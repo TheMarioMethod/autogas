@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fuel Cost Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Fuel Cost Calculator</h1>
+  <div class="inputs">
+    <label for="monthlyMileage">Monthly Mileage:</label>
+    <input type="number" id="monthlyMileage" oninput="calculateCosts()">
+    <br><br>
+    <label for="fuelConsumption">Fuel Consumption (L/100km):</label>
+    <input type="number" id="fuelConsumption" oninput="calculateCosts()">
+  </div>
+  <div class="results">
+    <p>Fuel cost per month: <span id="fuelCostPerMonth"></span></p>
+    <p>LPG cost per month: <span id="lpgCostPerMonth"></span></p>
+    <p>Monthly saving: <span id="monthlySaving"></span></p>
+    <p>Annual saving: <span id="annualSaving"></span></p>
+    <p>5 years: <span id="fiveYearSaving"></span></p>
+    <p>10 years: <span id="tenYearSaving"></span></p>
+  </div>
+
+  <script>
+    function calculateCosts() {
+      const monthlyMileage = parseFloat(document.getElementById("monthlyMileage").value);
+      const fuelConsumption = parseFloat(document.getElementById("fuelConsumption").value);
+
+      const fuelCostPerMonth = (monthlyMileage / fuelConsumption * 15.52).toFixed(2);
+      const lpgCostPerMonth = (monthlyMileage / (fuelConsumption / 1.17) * 11.28).toFixed(2);
+      const monthlySaving = (fuelCostPerMonth - lpgCostPerMonth).toFixed(2);
+
+      const annualSaving = (monthlySaving * 12).toFixed(2);
+      const fiveYearSaving = (annualSaving * 5).toFixed(2);
+      const tenYearSaving = (fiveYearSaving * 2).toFixed(2);
+
+      // Format numbers with commas using toLocaleString with options
+      const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'BWP',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      document.getElementById("fuelCostPerMonth").textContent = formatter.format(fuelCostPerMonth);
+      document.getElementById("lpgCostPerMonth").textContent = formatter.format(lpgCostPerMonth);
+      document.getElementById("monthlySaving").textContent = formatter.format(monthlySaving);
+      document.getElementById("annualSaving").textContent = formatter.format(annualSaving);
+      document.getElementById("fiveYearSaving").textContent = formatter.format(fiveYearSaving);
+      document.getElementById("tenYearSaving").textContent = formatter.format(tenYearSaving);
+    }
+  </script>
+
+</body>
+</html>
