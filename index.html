@@ -6,24 +6,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div class="logo">
+    <img class="img" src="logo.png" alt="Fuel2Gas" />
+</div>
   <h1>Fuel Cost Calculator</h1>
-  <div class="inputs">
-    <label for="monthlyMileage">Monthly Mileage:</label>
-    <input type="number" id="monthlyMileage" oninput="calculateCosts()">
-    <br><br>
-    <label for="fuelConsumption">Fuel Consumption (L/100km):</label>
-    <input type="number" id="fuelConsumption" oninput="calculateCosts()">
-  </div>
-  <div class="results">
-    <p>Fuel cost per month: <span id="fuelCostPerMonth"></span></p>
-    <p>LPG cost per month: <span id="lpgCostPerMonth"></span></p>
-    <p>Monthly saving: <span id="monthlySaving"></span></p>
-    <p>Annual saving: <span id="annualSaving"></span></p>
-    <p>5 years: <span id="fiveYearSaving"></span></p>
-    <p>10 years: <span id="tenYearSaving"></span></p>
-  </div>
-
+    <table>
+    <tr>
+        <td>
+            <div class="inputs">
+                <label for="monthlyMileage">Monthly Mileage:</label>
+                <input type="number" id="monthlyMileage" oninput="calculateCosts()">
+                <br><br>
+                <label for="fuelConsumption">Fuel Consumption (km/l):</label>
+                <input type="number" id="fuelConsumption" oninput="calculateCosts()">
+            </div>
+        </td>    
+        <td>
+            <div class="results">
+                <p>Fuel cost per month: <span id="fuelCostPerMonth"></span></p>
+                <p>LPG cost per month: <span id="lpgCostPerMonth"></span></p>
+                <p>Monthly saving: <span id="monthlySaving"></span></p>
+                <p>Annual saving: <span id="annualSaving"></span></p>
+                <p>5 years: <span id="fiveYearSaving"></span></p>
+                <p>10 years: <span id="tenYearSaving"></span></p>
+            </div>
+        </td>
+    </tr>
+    </table>
   <script>
     function calculateCosts() {
       const monthlyMileage = parseFloat(document.getElementById("monthlyMileage").value);

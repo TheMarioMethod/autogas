@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   text-align: center;
+  font-size: 1.25em;
 }
 
 .inputs {
@@ -8,6 +9,7 @@ body {
   width: 300px;
   border: 1px solid #ccc;
   padding: 10px;
+  margin-left: -1%;
 }
 
 .inputs label {
@@ -16,7 +18,7 @@ body {
 }
 
 .inputs input {
-  width: 100%;
+  width: 95%;
   padding: 5px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
@@ -24,13 +26,15 @@ body {
 
 .results {
   margin: 20px auto;
-  width: 300px;
+  width: 400px;
   border: 1px solid #ccc;
   padding: 10px;
+  margin-right: -1%;
 }
 
 .results p {
   margin-bottom: 10px;
+  text-align: right;
 }
 
 .results span {
@@ -46,4 +50,12 @@ body {
 
 .reset-button:hover {
   background-color: #e0e0e0;
+}
+
+.img {
+    height: 25vh;
+}
+
+table {
+    margin: auto;
 }
